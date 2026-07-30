@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone, MapPin, Calendar, Heart, Award, ArrowUp } from "lucide-react";
+import logo from "../assets/ribafuru-rogo.png";
 
 interface FooterProps {
   onNavigate: (section: string) => void;
@@ -48,10 +49,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Column 1: Company Profile */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-amber-300 rounded-full flex items-center justify-center font-serif italic text-amber-950 font-bold">
-              L
-            </div>
-            <span className="text-lg font-bold text-white tracking-wider">リバフルグループ</span>
+            <img
+              src={logo}
+              alt="リバフル ロゴ"
+              className="w-12 h-12 object-contain"
+            />
+            <span className="text-lg font-bold text-white tracking-wider">"株式会社 リバフル"</span>
           </div>
           <p className="text-xs text-zinc-500 leading-relaxed">
             高知県高知市・吾川郡いの町を拠点に、デイサービス、訪問介護、ケアマネジメント、介護タクシー、放課後等デイサービスを運営する総合福祉ケアグループ。
@@ -178,8 +181,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <span className="text-zinc-800">|</span>
             <button className="hover:text-zinc-400 transition">運営規約</button>
             <span className="text-zinc-800">|</span>
-            <button 
-              onClick={scrolltoTop} 
+            <button
+              onClick={scrolltoTop}
               className="flex items-center gap-1 hover:text-white transition bg-zinc-800 px-2 py-1 rounded"
             >
               <span>TOPへ</span>

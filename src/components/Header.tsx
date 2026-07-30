@@ -2,6 +2,8 @@ import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Phone, Calendar, Mail, FileText, Menu, X, Award, ChevronRight } from "lucide-react";
 
+import logo from "../assets/ribafuru-rogo.png";
+
 interface HeaderProps {
   onNavigate: (section: string) => void;
   currentSection: string;
@@ -50,11 +52,11 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentSection }) =>
           className="flex items-center gap-3 cursor-pointer select-none"
           onClick={() => handleNavClick("top")}
         >
-          {/* Custom Styled Icon */}
-          <div className="relative w-10 h-10 md:w-12 md:h-12 bg-[#5A5A40] rounded-full flex items-center justify-center border-2 border-[#7A7A5A]/30 shadow-inner group transition-all duration-300 hover:rotate-6">
-            <span className="absolute -inset-1 rounded-full border border-[#5A5A40]/30 group-hover:scale-110 transition duration-300" />
-            <span className="text-xl md:text-2xl font-serif font-bold text-white leading-none">L</span>
-          </div>
+          <img
+            src={logo}
+            alt="リバフル ロゴ"
+            className="w-10 h-10 md:w-12 md:h-12 object-contain"
+          />
           <div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-lg md:text-2xl font-bold font-sans text-[#2D3327] tracking-tight">

@@ -8,7 +8,8 @@ import { RecruitmentSection } from "./components/RecruitmentSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { motion, AnimatePresence } from "motion/react";
-import { SplashLoader } from "./components/SplashLoader";
+// 変更点: SplashLoader から OpeningScreen に変更
+import { OpeningScreen } from "./components/OpeningScreen";
 import { Sparkles, ArrowRight, ShieldCheck, Heart, Navigation } from "lucide-react";
 
 export default function App() {
@@ -48,11 +49,12 @@ export default function App() {
     <>
       <AnimatePresence mode="wait">
         {showIntro && (
-          <SplashLoader onComplete={() => setShowIntro(false)} />
+          // 変更点: SplashLoader から OpeningScreen に変更
+          <OpeningScreen onComplete={() => setShowIntro(false)} />
         )}
       </AnimatePresence>
 
-      <motion.div 
+      <motion.div
         className="min-h-screen bg-[#FAF9F6] text-[#2D3327] font-sans selection:bg-[#5A5A40] selection:text-white flex flex-col"
         initial={{ opacity: 0 }}
         animate={{ opacity: showIntro ? 0 : 1 }}
@@ -64,13 +66,13 @@ export default function App() {
         {/* Main Content */}
         <main className="flex-1 flex flex-col">
           {/* Hero Section */}
-          <section 
+          <section
             id="top"
             className="relative min-h-[500px] md:min-h-[600px] lg:h-[640px] flex flex-col lg:flex-row items-stretch border-b border-[#E5E2D9] overflow-hidden bg-white"
           >
             {/* Left Side: Text and Tagline */}
             <div className="w-full lg:w-1/2 p-8 md:p-16 lg:p-20 flex flex-col justify-center items-start space-y-6">
-              <motion.span 
+              <motion.span
                 className="text-[#5A5A40] font-serif italic text-lg md:text-xl tracking-wide block"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 15 : 0 }}
@@ -78,8 +80,8 @@ export default function App() {
               >
                 Empowering Lives, Enriching Care.
               </motion.span>
-              
-              <motion.h2 
+
+              <motion.h2
                 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-serif tracking-tight text-[#2D3327]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 20 : 0 }}
@@ -89,7 +91,7 @@ export default function App() {
                 <span className="text-[#7A7A5A]">「自分らしさ」</span>の追求。
               </motion.h2>
 
-              <motion.p 
+              <motion.p
                 className="text-zinc-600 max-w-lg leading-relaxed text-sm md:text-base font-sans"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 20 : 0 }}
@@ -98,20 +100,20 @@ export default function App() {
                 リバフルは、介護の枠を超えたホスピタリティとプロフェッショナリズムで、地域社会に信頼と安心の輪を広げています。高知県高知市と、いの町で訪問介護、デイサービス、居宅支援、放課後等デイサービスなど、5つの専門福祉分野において、包括的なライフサポートを提供します。
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap gap-4 pt-4 w-full sm:w-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 20 : 0 }}
                 transition={{ duration: 0.8, delay: 0.65 }}
               >
-                <button 
+                <button
                   onClick={() => handleNavigate("services")}
                   className="bg-[#5A5A40] hover:bg-[#444430] text-white px-6 py-3.5 rounded-2xl font-bold tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group w-full sm:w-auto cursor-pointer"
                 >
                   <span>5つの事業を見る</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition" />
                 </button>
-                <button 
+                <button
                   onClick={() => handleNavigate("contact")}
                   className="bg-[#FAF9F6] hover:bg-[#F5F5F0] text-[#5A5A40] border border-[#E5E2D9] px-6 py-3.5 rounded-2xl font-bold tracking-wider transition-all flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer"
                 >
@@ -140,7 +142,7 @@ export default function App() {
               </div>
 
               {/* Float ISO Certification Badge */}
-              <motion.div 
+              <motion.div
                 className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-2xl border border-[#E5E2D9] shadow-sm flex items-center gap-3 max-w-[280px]"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: showIntro ? 0 : 1, x: showIntro ? 20 : 0 }}
